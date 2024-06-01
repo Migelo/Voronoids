@@ -89,7 +89,7 @@ impl PyDelauanyTree {
         HashMap::from_iter(self.tree.simplices.iter().map(|id| {
             let simplex = &self.tree.simplices.get(id.key()).unwrap();
             (
-                id.key().clone(),
+                *id.key(),
                 PySimplex {
                     vertices: simplex.vertices,
                     center: simplex.center,
